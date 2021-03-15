@@ -15,14 +15,13 @@ let arrnumber = String(number).split('');
 
 if (arrnumber.length === 1) {
     return ones[number];
-}
-
-
-if (arrnumber.length === 2) {
-   return number < 20 ? ten_nineteen[Number(arrnumber[0])+Number(arrnumber[1])] : tens[arrnumber[0]]+' '+ones[arrnumber[1]];
-}
-
-if (arrnumber.length === 3 && arrnumber[1] == 0 && arrnumber[2] == 0) { 
+} else if (arrnumber.length === 2 && number < 20) {
+    return ten_nineteen[Number(arrnumber[0])+Number(arrnumber[1])];
+} else if (arrnumber.length === 2 && arrnumber[1] == 0){
+    return tens[arrnumber[0]];
+} else if (arrnumber.length === 2) {
+    return tens[arrnumber[0]]+' '+ones[arrnumber[1]];
+ } else if (arrnumber.length === 3 && arrnumber[1] == 0 && arrnumber[2] == 0) { 
     return ones[arrnumber[0]]+' hundred';
 } else if (arrnumber.length === 3 && arrnumber[1] == 0) {
     return ones[arrnumber[0]]+' hundred '+ones[arrnumber[2]];
